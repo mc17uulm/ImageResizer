@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="655.0" style="-fx-background-color: white;" stylesheets="@../../../../../resources/bootstrap3.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uulm.mc17.main.Controller">
+   <content>
+      <VBox fx:id="vBox" prefHeight="630.0" prefWidth="649.0">
+         <children>
+            <HBox prefHeight="36.0" prefWidth="649.0">
+               <children>
+                  <MenuBar prefHeight="38.0" prefWidth="650.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="51.0" prefWidth="649.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="649.0" text="ImageResizer 0.1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="285.0" prefWidth="649.0">
+               <children>
+                  <TableView fx:id="imageTable" prefHeight="317.0" prefWidth="623.0">
+                      <placeholder>
+                          <Label text="" />
+                      </placeholder>
+                    <columns>
+                      <TableColumn fx:id="imageCol" prefWidth="75.0" text="Image">
+                          <cellValueFactory>
+                              <PropertyValueFactory property="view" />
+                          </cellValueFactory>
+                      </TableColumn>
+                      <TableColumn fx:id="nameCol" prefWidth="175.0" text="Name">
+                          <cellValueFactory>
+                              <PropertyValueFactory property="name" />
+                          </cellValueFactory>
+                      </TableColumn>
+                      <TableColumn fx:id="sizeCol" prefWidth="40.0" text="Size">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="size" />
+                        </cellValueFactory>
+                      </TableColumn>
+                      <TableColumn fx:id="typeCol" prefWidth="35.0" text="Type">
+                          <cellValueFactory>
+                              <PropertyValueFactory property="type" />
+                          </cellValueFactory>
+                      </TableColumn>
+                      <TableColumn fx:id="statusCol" prefWidth="90.0" text="Status">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="status" />
+                            </cellValueFactory>
+                      </TableColumn>
+                      <TableColumn fx:id="resultCol" prefWidth="175.0" text="Result">
+                         <cellValueFactory>
+                             <PropertyValueFactory property="result" />
+                         </cellValueFactory>
+                      </TableColumn>
+                    </columns>
+                  </TableView>
+               </children>
+            </HBox>
+            <HBox prefHeight="72.0" prefWidth="625.0">
+               <children>
+                  <VBox prefHeight="42.0" prefWidth="651.0">
+                     <children>
+                        <Label text="Output Folder:">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="520.0">
+                                 <children>
+                                    <TextField fx:id="folderURL" editable="false" prefHeight="45.0" prefWidth="508.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="selectBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selectFolder" text="Select Folder" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="12.0" right="12.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="61.0" prefWidth="649.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="234.0">
+                     <children>
+                        <Button fx:id="addBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#add" style="-fx-background-insets: 0,0,-1,0;" styleClass="success" text="Add">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="removeBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" disable="true" mnemonicParsing="false" onAction="#remove" style="-fx-background-insets: 0,0,-1,0;" styleClass="danger" text="Remove">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <ProgressIndicator fx:id="progress" prefHeight="23.0" prefWidth="31.0" progress="0.0" visible="false">
+                           <HBox.margin>
+                              <Insets left="12.0" top="10.0" />
+                           </HBox.margin>
+                        </ProgressIndicator>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="7.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="jpgToggle" disable="true" mnemonicParsing="false" text="jpg">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="pngToggle" disable="true" mnemonicParsing="false" text="png">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="61.0" prefWidth="251.0">
+                     <children>
+                        <Button fx:id="compressBtn" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#compress" style="-fx-background-insets: 0,0,-1,0;" styleClass="primary" text="Compress">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="178.0" prefWidth="649.0">
+               <children>
+                  <VBox prefHeight="178.0" prefWidth="625.0">
+                     <children>
+                        <Label text="Console:" />
+                        <TextArea fx:id="console" editable="false" prefHeight="105.0" prefWidth="625.0">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TextArea>
+                        <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="626.0" progress="0.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </ProgressBar>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="12.0" right="12.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
