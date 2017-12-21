@@ -241,6 +241,8 @@ public class Controller implements Initializable {
 
         progressBar.progressProperty().unbind();
         progressBar.progressProperty().bind(resizeTask.progressProperty());
+        progress.progressProperty().unbind();
+        progress.progressProperty().bind(resizeTask.progressProperty());
 
         resizeTask.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED, new EventHandler<WorkerStateEvent>() {
             @Override

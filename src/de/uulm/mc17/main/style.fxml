@@ -76,7 +76,7 @@
                                 <PropertyValueFactory property="status" />
                             </cellValueFactory>
                       </TableColumn>
-                      <TableColumn fx:id="resultCol" prefWidth="175.0" text="Result">
+                      <TableColumn fx:id="resultCol" prefWidth="Infinity" maxWidth="190.0" text="Result">
                          <cellValueFactory>
                              <PropertyValueFactory property="result" />
                          </cellValueFactory>
@@ -132,9 +132,9 @@
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <ProgressIndicator fx:id="progress" prefHeight="23.0" prefWidth="31.0" progress="0.0" visible="false">
+                        <ProgressIndicator fx:id="progress" prefHeight="10.0" maxHeight="10.0" minHeight="10.0" prefWidth="31.0" progress="0.0" visible="false">
                            <HBox.margin>
-                              <Insets left="12.0" top="10.0" />
+                              <Insets left="8.0" bottom="15.0" />
                            </HBox.margin>
                         </ProgressIndicator>
                      </children>
